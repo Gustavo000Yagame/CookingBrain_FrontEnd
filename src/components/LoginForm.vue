@@ -4,7 +4,7 @@
     justify-content: flex-end; 
     align-items: center;      
     min-height: 100vh;        
-    padding-right: 130px;    
+    padding-right: 250px;    
     background-color: #f4f4f7; 
   }
 
