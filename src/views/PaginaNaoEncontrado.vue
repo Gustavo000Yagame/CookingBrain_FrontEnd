@@ -1,6 +1,4 @@
 <style scoped>
-/* Design Inspired by one of Stefan Devai's Design on Dribble */
-
 .main_wrapper {
   display: flex;
   align-items: center;
