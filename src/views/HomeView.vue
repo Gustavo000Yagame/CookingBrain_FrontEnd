@@ -51,7 +51,7 @@ export default {
 
 .feedback-section {
   display: flex;
-  gap: 30px;
+  gap: 80px;
   align-items: flex-start;
 }
 
