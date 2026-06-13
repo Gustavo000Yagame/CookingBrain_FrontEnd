@@ -5,7 +5,7 @@
       <img :src="imgMascote" class="mascote-img" />
       <div class="feedback-section">
         <Feedback />
-        <Caderno />
+        <CardTop />
       </div>
     </div>
     <Footer />
@@ -18,7 +18,6 @@ import Footer from "../components/Footer.vue";
 import imgMascote from "../assets/mascote.png";
 import Feedback from "../components/Feedback.vue";
 import Caderno from "../components/Caderno.vue";
-import CardMensal from "../components/CardMensal.vue";
 import CardTop from "../components/CardTop.vue";
 
 export default {
@@ -28,6 +27,7 @@ export default {
     Footer,
     Feedback,
     CardTop,
+    Caderno,
   },
   data() {
     return {
