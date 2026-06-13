@@ -53,56 +53,19 @@
     opacity: 0;
     transition: 300ms ease-in-out;
     position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 800;
-    letter-spacing: 2px;
-    text-align: center;
-    width: calc(100% - 16px);
-    line-height: 1.05;
-    padding-top: 0;
-    background: linear-gradient(45deg, #00ffaa, #00a2ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 12px rgba(0, 255, 170, 0.25));
-    text-shadow:
-      0 0 8px rgba(92, 103, 255, 0.45),
-      0 0 16px rgba(92, 103, 255, 0.25);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2px;
-    white-space: normal;
-    overflow-wrap: anywhere;
-  }
-
-  .title-top {
-    font-size: 22px;
     letter-spacing: 4px;
-    line-height: 1;
-    -webkit-background-clip: unset;
-    -webkit-text-fill-color: #ffffff;
-    filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.6));
-    text-shadow: none;
-    opacity: 1;
-  }
-
-  .title-bottom {
-    font-size: 16px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    background: linear-gradient(45deg, #00ffaa, #00a2ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(0, 255, 170, 0.25));
-    text-shadow:
-      0 0 6px rgba(92, 103, 255, 0.35);
-    transition: transform 300ms, opacity 300ms;
-    word-break: break-word;
     text-align: center;
     width: 100%;
+    padding-top: 20px;
+    background: linear-gradient(45deg, #00ffaa, #00a2ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 15px rgba(0, 255, 170, 0.3));
+    text-shadow:
+      0 0 10px rgba(92, 103, 255, 0.5),
+      0 0 20px rgba(92, 103, 255, 0.3);
   }
 
   .subtitle {
@@ -173,9 +136,9 @@
   }
 
   /* Hover effects */
-  .tracker:hover ~ #card .title-bottom {
+  .tracker:hover ~ #card .title {
     opacity: 1;
-    transform: translateY(-6px);
+    transform: translateY(-10px);
   }
 
   .tracker:hover ~ #card .glowing-elements div {
