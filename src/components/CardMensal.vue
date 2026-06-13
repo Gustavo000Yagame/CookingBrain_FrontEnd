@@ -2,11 +2,11 @@
   .plan {
     border-radius: 16px;
     box-shadow: 0 30px 30px -25px rgba(0, 38, 255, 0.205);
-    padding: 10px;
+    padding: 30px;
     background-color: #fff;
     color: #697e91;
     max-width: 400px;
-    height: 600px;
+    height: 700px;
   }
 
   .plan strong {
