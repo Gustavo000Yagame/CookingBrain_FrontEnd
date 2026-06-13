@@ -290,5 +290,5 @@
     </div>
   </div>
 </template>
-<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-7 py-7">
+<div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto pl-2 pr-4 py-4">
 </div>
