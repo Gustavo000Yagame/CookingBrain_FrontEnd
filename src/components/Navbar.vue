@@ -16,9 +16,9 @@
       <div class="flex md:order-2 space-x-3">
         <router-link
           to="/login"
-          class="text-white bg-brand hover:bg-brand-strong font-medium rounded-base text-sm px-3 py-2"
+          class="text-black bg-brand hover:bg-brand-strong font-medium rounded-base text-sm px-3 py-2"
         >
-          Get started
+          Iniciar Sessão
         </router-link>
 
         <button
@@ -49,7 +49,7 @@
               to="/about"
               class="block py-2 text-heading hover:text-fg-brand"
             >
-              About
+              Sobre
             </router-link>
           </li>
 
@@ -58,7 +58,7 @@
               to="/services"
               class="block py-2 text-heading hover:text-fg-brand"
             >
-              Services
+              Serviços
             </router-link>
           </li>
 
@@ -67,7 +67,7 @@
               to="/contact"
               class="block py-2 text-heading hover:text-fg-brand"
             >
-              Contact
+              Contato
             </router-link>
           </li>
         </ul>
