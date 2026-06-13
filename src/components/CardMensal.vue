@@ -3,7 +3,7 @@
     border-radius: 16px;
     box-shadow: 0 30px 30px -25px rgba(0, 38, 255, 0.205);
     padding: 30px;
-    background-color: #c7c5c5;
+    background-color: #f8f8f8de;
     color: #697e91;
     max-width: 400px;
   }
