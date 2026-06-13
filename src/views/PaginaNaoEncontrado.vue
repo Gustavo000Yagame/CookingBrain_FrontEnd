@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 0;
-  transform: scale(1.45);
+  transform: scale(1.65);
   transform-origin: center;
 }
 
