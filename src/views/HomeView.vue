@@ -21,7 +21,7 @@ import Feedback from "../components/Feedback.vue";
 import Caderno from "../components/Caderno.vue";
 import CardTop from "../components/CardTop.vue";
 import CardTop2 from "../components/cardTop2.vue";
-import CardTop3 from "../components/cardTop3.vue";
+import CardTop3 from "../components/CardTop3.vue";
 
 export default {
   name: "HomeView",
