@@ -678,7 +678,7 @@
             <span></span><span></span><span></span><span></span>
           </div>
           <p id="prompt">PENSE COOKINGBRAIN</p>
-          <div class="title">ALCANCE <br />MAIS</div>
+          <div class="title">ALCANCE<br />MAIS</div>
           <div class="glowing-elements">
             <div class="glow-1"></div>
             <div class="glow-2"></div>

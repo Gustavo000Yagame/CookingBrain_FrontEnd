@@ -14,12 +14,13 @@
       </router-link>
 
       <div class="flex md:order-2 space-x-3">
-        <router-link
-          to="/login"
-          class="text-black bg-brand hover:bg-brand-strong font-medium rounded-base text-sm px-3 py-2"
+        <button
+          @click="goToLogin"
+          :disabled="isLoading"
+          class="text-black bg-brand hover:bg-brand-strong font-medium rounded-base text-sm px-3 py-2 disabled:opacity-50"
         >
-          Iniciar Sessão
-        </router-link>
+          {{ isLoading ? 'Carregando...' : 'Iniciar Sessão' }}
+        </button>
 
         <button
           @click="toggleMenu"
@@ -77,17 +78,34 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+
 export default {
   name: "Navbar",
-  data() {
-    return {
-      open: false,
+  setup() {
+    const open = ref(false);
+    const isLoading = ref(false);
+    const router = useRouter();
+
+    const toggleMenu = () => {
+      open.value = !open.value;
     };
-  },
-  methods: {
-    toggleMenu() {
-      this.open = !this.open;
-    },
+
+    const goToLogin = async () => {
+      if (isLoading.value) return;
+      isLoading.value = true;
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      isLoading.value = false;
+      router.push("/login");
+    };
+
+    return {
+      open,
+      isLoading,
+      toggleMenu,
+      goToLogin,
+    };
   },
 };
 </script>
