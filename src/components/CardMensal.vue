@@ -6,7 +6,7 @@
     background-color: #fff;
     color: #697e91;
     max-width: 400px;
-    height: 1100px;
+    height: 600px;
   }
 
   .plan strong {
