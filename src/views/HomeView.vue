@@ -4,7 +4,8 @@
     <div class="content">
       <img :src="imgMascote" class="mascote-img" />
       <div class="feedback-section">
-        <Feedback />
+        <CardTop />
+        <CardTop />
         <CardTop />
       </div>
     </div>
