@@ -96,7 +96,7 @@
 <template>
   <div class="task" draggable="true">
     <div class="tags">
-      <span class="tag">Draggable</span>
+      <span class="tag">Elon Musk</span>
       <button class="options">
         <svg
           xml:space="preserve"
@@ -132,9 +132,12 @@
       </button>
     </div>
     <p>
-      Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in
-      laying out print, graphic or web designs. The passage is attributed to an
-      unknown
+Oi, eu sou o Elon Musk de verdade! 😎
+
+Passei aqui só pra dizer que esse ERP é top demais. Já tô usando em todos os meus restaurantes e até na minha mina de esmeraldas. Ficou tudo muito mais fácil de organizar e acompanhar.
+
+Pode confiar, esse negócio funciona mesmo! 🚀
+
     </p>
     <div class="stats">
       <div>
