@@ -3,8 +3,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30em;
-  height: 30em;
+  width: 100%;
+  height: calc(100vh - 4rem);
+  padding: 2rem 0;
 }
 
 .main {
@@ -12,7 +13,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 5em;
+  margin-top: 0;
+  transform: scale(1.15);
+  transform-origin: center;
 }
 
 .antenna {
