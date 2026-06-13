@@ -685,8 +685,8 @@
             <div class="glow-3"></div>
           </div>
           <div class="subtitle">
-            <span>INTERACTIVE</span>
-            <span class="highlight">3D EFFECT</span>
+            <span>CookingBrain</span>
+            <span class="highlight">Eficiência e Controle</span>
           </div>
           <div class="card-particles">
             <span></span><span></span><span></span> <span></span><span></span
