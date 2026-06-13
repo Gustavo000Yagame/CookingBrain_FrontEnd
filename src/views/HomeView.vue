@@ -45,7 +45,7 @@ export default {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 80px;
+  gap: 40px;
   padding: 40px;
 }
 
@@ -53,6 +53,7 @@ export default {
   display: flex;
   gap: 30px;
   align-items: flex-start;
+  margin-top: 200px;
 }
 
 .mascote-img {
