@@ -382,10 +382,9 @@
       <div class="tracker tr-24"></div>
       <div class="tracker tr-25"></div>
       <div id="card">
-      <p id="prompt">HOVER OVER :D</p>
-        <div class="title">look mom,<br>no JS</div>
+      <p id="prompt">Cooking Brain :D</p>
+        <div class="title">Mais Gestão,<br>Menos Complicação</div>
         <div class="subtitle">
-          mouse hover tracker
         </div>
 
       </div>
