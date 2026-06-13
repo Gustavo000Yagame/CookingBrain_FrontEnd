@@ -55,12 +55,12 @@
   <div class="container">
     <div class="card">
       <div class="front">
-        <p class="front-heading">Front card</p>
-        <p>Follow Me For More</p>
+        <p class="front-heading">CookingBrain</p>
+        <p>O Seu ERP Inteligente</p>
       </div>
       <div class="back">
-        <p class="back-heading">Back card</p>
-        <p>Follow Me For More</p>
+        <p class="back-heading">CookingBrain</p>
+        <p>O ERP que Faz Crescer</p>
       </div>
     </div>
   </div>
