@@ -45,7 +45,7 @@ export default {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 80px;
   padding: 40px;
 }
 
