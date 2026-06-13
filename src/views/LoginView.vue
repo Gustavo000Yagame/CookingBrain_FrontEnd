@@ -2,7 +2,8 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { supabase } from "@/services/supabase";
-import LoginForm from "@/components/LoginForm.vue"; 
+import LoginForm from "@/components/LoginForm.vue";
+import Loading from "@/components/Loading.vue";
 
 const router = useRouter();
 const isLoading = ref(false);
@@ -41,9 +42,23 @@ const onGoogleSubmit = async () => {
 </script>
 
 <template>
-  <LoginForm 
-    :is-loading="isLoading" 
-    @login="onLoginSubmit" 
-    @google-login="onGoogleSubmit" 
+  <div v-if="isLoading" class="loading-overlay">
+    <Loading />
+  </div>
+  <LoginForm
+    v-else
+    :is-loading="isLoading"
+    @login="onLoginSubmit"
+    @google-login="onGoogleSubmit"
   />
 </template>
+
+<style scoped>
+.loading-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f7;
+}
+</style>
