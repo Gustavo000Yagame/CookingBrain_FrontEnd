@@ -17,7 +17,7 @@ import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
 import imgMascote from "../assets/mascote.png";
 import Feedback from "../components/Feedback.vue";
-import Caderno from "../components/CardMensal.vue";  
+import Caderno from "../components/Caderno.vue";
 
 export default {
   name: "HomeView",
