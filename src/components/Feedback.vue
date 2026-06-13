@@ -132,12 +132,9 @@
       </button>
     </div>
     <p>
-Oi, eu sou o Elon Musk de verdade! 😎
-
-Passei aqui só pra dizer que esse ERP é top demais. Já tô usando em todos os meus restaurantes e até na minha mina de esmeraldas. Ficou tudo muito mais fácil de organizar e acompanhar.
-
-Pode confiar, esse negócio funciona mesmo! 🚀
-
+      Oi, eu sou o Elon Musk! Só passando para dizer que esse ERP é incrível.
+      Estou usando nos meus negócios e ficou muito mais fácil organizar e acompanhar tudo.
+      Recomendo d ++!
     </p>
     <div class="stats">
       <div>
