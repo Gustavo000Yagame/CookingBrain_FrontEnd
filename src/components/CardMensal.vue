@@ -5,8 +5,8 @@
     padding: 30px;
     background-color: #fff;
     color: #697e91;
-    max-width: 400px;
-    height: 700px;
+    max-width: 500px;
+    height: 800px;
   }
 
   .plan strong {
