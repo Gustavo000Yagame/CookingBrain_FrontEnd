@@ -53,19 +53,25 @@
     opacity: 0;
     transition: 300ms ease-in-out;
     position: absolute;
-    font-size: 28px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
     font-weight: 800;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     text-align: center;
-    width: 100%;
-    padding-top: 20px;
+    width: calc(100% - 16px);
+    line-height: 1.05;
+    padding-top: 0;
     background: linear-gradient(45deg, #00ffaa, #00a2ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 15px rgba(0, 255, 170, 0.3));
+    filter: drop-shadow(0 0 12px rgba(0, 255, 170, 0.25));
     text-shadow:
-      0 0 10px rgba(92, 103, 255, 0.5),
-      0 0 20px rgba(92, 103, 255, 0.3);
+      0 0 8px rgba(92, 103, 255, 0.45),
+      0 0 16px rgba(92, 103, 255, 0.25);
+    white-space: pre-line;
+    overflow-wrap: break-word;
   }
 
   .subtitle {
