@@ -14,6 +14,7 @@ import Navbar from "../components/Navbar.vue";
 import Footer from "../components/Footer.vue";
 import imgMascote from "../assets/mascote.png";
 import Feedback from "../components/Feedback.vue";
+import CardMensal from "../components/CardMensal.vue";  
 
 export default {
   name: "HomeView",
@@ -21,6 +22,7 @@ export default {
     Navbar,
     Footer,
     Feedback,
+    CardMensal,
   },
   data() {
     return {
