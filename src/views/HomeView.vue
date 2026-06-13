@@ -5,8 +5,8 @@
       <img :src="imgMascote" class="mascote-img" />
       <div class="feedback-section">
         <CardTop />
-        <CardTop />
-        <CardTop />
+        <CardTop2 />
+        <CardTop3 />
       </div>
     </div>
     <Footer />
@@ -20,6 +20,8 @@ import imgMascote from "../assets/mascote.png";
 import Feedback from "../components/Feedback.vue";
 import Caderno from "../components/Caderno.vue";
 import CardTop from "../components/CardTop.vue";
+import CardTop2 from "../components/cardTop2.vue";
+import CardTop3 from "../components/cardTop3.vue";
 
 export default {
   name: "HomeView",
@@ -29,6 +31,8 @@ export default {
     Feedback,
     CardTop,
     Caderno,
+    CardTop2,
+    CardTop3,
   },
   data() {
     return {
