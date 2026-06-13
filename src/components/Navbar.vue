@@ -84,7 +84,7 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import Loading from "@/components/Loading.vue";
+import Loading from "./Loading.vue";
 
 export default {
   name: "Navbar",
