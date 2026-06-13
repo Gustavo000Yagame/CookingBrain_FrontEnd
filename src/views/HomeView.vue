@@ -3,7 +3,10 @@
     <Navbar />
     <div class="content">
       <img :src="imgMascote" class="mascote-img" />
-      <Feedback />  
+      <div class="feedback-section">
+        <Feedback />
+        <CardMensal />
+      </div>
     </div>
     <Footer />
   </main>
@@ -44,6 +47,12 @@ export default {
   align-items: center;
   gap: 40px;
   padding: 40px;
+}
+
+.feedback-section {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
 }
 
 .mascote-img {
