@@ -13,13 +13,13 @@
         <span class="text-xl font-semibold text-heading"> CookingBrain </span>
       </router-link>
 
-      <div class="flex md:order-2 space-x-3">
+      <div class="flex md:order-2 space-x-3 items-center">
         <button
           @click="goToLogin"
           :disabled="isLoading"
           class="text-black bg-brand hover:bg-brand-strong font-medium rounded-base text-sm px-3 py-2 disabled:opacity-50"
         >
-          {{ isLoading ? 'Carregando...' : 'Iniciar Sessão' }}
+          Iniciar Sessão
         </button>
 
         <button
@@ -28,6 +28,10 @@
         >
           ☰
         </button>
+      </div>
+
+      <div v-if="isLoading" class="loading-overlay">
+        <Loading />
       </div>
 
       <div
@@ -80,9 +84,13 @@
 <script>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import Loading from "/Loading.vue";
 
 export default {
   name: "Navbar",
+  components: {
+    Loading,
+  },
   setup() {
     const open = ref(false);
     const isLoading = ref(false);
@@ -109,3 +117,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.55);
+}
+</style>
