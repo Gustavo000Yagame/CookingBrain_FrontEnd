@@ -31,7 +31,7 @@
         <div>
           <h2 class="font-semibold mb-5">Company</h2>
 
-          <ul class="text-sm space-y-2 text-black">
+          <ul class="text-sm space-y-2 text-black font-bold">
             <li><a href="#" >Home</a></li>
             <li><a href="#" >Serviços</a></li>
             <li><a href="#" >Sobre</a></li>
