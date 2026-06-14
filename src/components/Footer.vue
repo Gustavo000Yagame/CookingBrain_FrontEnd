@@ -30,12 +30,11 @@
       <div class="flex-1 flex items-start md:justify-end gap-20 md:gap-40">
         <div>
           <h2 class="font-semibold mb-5">Company</h2>
-
-          <ul class="text-sm space-y-2 text-black font-bold">
-            <li><a href="#" >Home</a></li>
-            <li><a href="#" >Serviços</a></li>
-            <li><a href="#" >Sobre</a></li>
-            <li><a href="#" >política</a></li>
+          <ul class="text-sm space-y-2 text-gray-600"> 
+            <li><a href="#" class="transition-all hover:text-black hover:font-bold">Home</a></li> 
+            <li><a href="#" class="transition-all hover:text-black hover:font-bold">Serviços</a></li> 
+            <li><a href="#" class="transition-all hover:text-black hover:font-bold">Sobre</a></li> 
+            <li><a href="#" class="transition-all hover:text-black hover:font-bold">política</a></li> 
           </ul>
         </div>
 
