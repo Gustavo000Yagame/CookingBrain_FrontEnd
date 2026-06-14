@@ -39,11 +39,11 @@
         </div>
 
         <div>
-          <h2 class="font-bold text-gray-800 mb-5">Get in touch</h2>
+          <h2 class="font-bold text-gray-800 mb-5">Contatos</h2>
 
           <div class="text-sm space-y-2">
-            <p>+55-48-99689-6276</p>
-            <p>cookbg@gmail.com</p>
+            <p class="hover:text-black hover:font-bold">+55-48-99689-6276</p>
+            <p class="hover:text-black hover:font-bold">cookbg@gmail.com</p>
           </div>
         </div>
       </div>
