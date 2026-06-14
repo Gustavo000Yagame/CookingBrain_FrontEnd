@@ -40,10 +40,9 @@
 
         <div>
           <h2 class="font-bold text-gray-800 mb-5">Contatos</h2>
-
-          <div class="text-sm space-y-2">
-            <p class="hover:text-black hover:font-bold">+55-48-99689-6276</p>
-            <p class="hover:text-black hover:font-bold">cookbg@gmail.com</p>
+          <div class="text-sm space-y-2 text-gray-800"> 
+            <p class="transition-all hover:text-black hover:font-bold">+55-48-99689-6276</p> 
+            <p class="transition-all hover:text-black hover:font-bold">cookbg@gmail.com</p> 
           </div>
         </div>
       </div>
