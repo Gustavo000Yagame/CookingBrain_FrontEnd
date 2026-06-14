@@ -29,7 +29,7 @@
       </div>
       <div class="flex-1 flex items-start md:justify-end gap-20 md:gap-40">
         <div>
-          <h2 class="font-bold text-black mb-5">Company</h2>
+          <h2 class="font-bold text-gray-800 mb-5">Company</h2>
           <ul class="text-sm space-y-2 text-gray-600"> 
             <li><a href="#" class="transition-all hover:text-black hover:font-bold">Home</a></li> 
             <li><a href="#" class="transition-all hover:text-black hover:font-bold">Serviços</a></li> 
