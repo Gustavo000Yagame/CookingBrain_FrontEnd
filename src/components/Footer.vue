@@ -31,11 +31,11 @@
         <div>
           <h2 class="font-semibold mb-5">Company</h2>
 
-          <ul class="text-sm space-y-2">
-            <li><a href="#" color="black">Home</a></li>
-            <li><a href="#" color="black">Serviços</a></li>
-            <li><a href="#" color="black">Sobre</a></li>
-            <li><a href="#" color="black">política</a></li>
+          <ul class="text-sm space-y-2 color-gray-300">
+            <li><a href="#" >Home</a></li>
+            <li><a href="#" >Serviços</a></li>
+            <li><a href="#" >Sobre</a></li>
+            <li><a href="#" >política</a></li>
           </ul>
         </div>
 
