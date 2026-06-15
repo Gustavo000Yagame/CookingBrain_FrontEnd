@@ -21,7 +21,6 @@
         >
           Iniciar Sessão
         </button>
-
         <button
           @click="toggleMenu"
           class="md:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-base hover:bg-neutral-secondary-soft"
@@ -29,7 +28,7 @@
           ☰
         </button>
       </div>
-
+      
       <div v-if="isLoading" class="loading-overlay">
         <Loading />
       </div>

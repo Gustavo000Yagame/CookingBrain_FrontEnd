@@ -9,7 +9,7 @@
           class="h-11"
           src="https://cdn-icons-png.flaticon.com/512/10415/10415308.png"
         />
-        <p class="mt-6 text-sm">
+        <p class="text-gray-600 text-sm">
           Lorem Ipsum has been the industry's standard dummy text ever since the
           1500s, when an unknown printer took a galley of type and scrambled it
           to make a type specimen book.
