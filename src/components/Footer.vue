@@ -49,7 +49,7 @@
     </div>
     <p class="pt-4 text-center text-sm pb-5">
       Copyright {{ currentYear }} ©
-      <a href="https://www.haxball.com/" target="_blank"> PrebuiltUI </a>. All
+      <a href="" target="_blank"> PrebuiltUI </a>. All
       Rights Reserved.
     </p>
   </footer>
