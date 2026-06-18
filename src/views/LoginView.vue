@@ -15,10 +15,10 @@ const onLoginSubmit = async (data: { email: string; pass: string }) => {
       email: data.email,
       password: data.pass,
     });
-    
+
     if (error) throw error;
-    
-    router.push("/dashboard"); 
+
+    router.push("/dashboard");
   } catch (error: any) {
     alert(`Erro no login: ${error.message}`);
   } finally {

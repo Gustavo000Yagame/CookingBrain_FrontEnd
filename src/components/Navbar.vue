@@ -1,7 +1,5 @@
 <template>
-  <nav
-    class="bg-white fixed w-full z-20 top-0 border-b border-default"
-  >
+  <nav class="bg-white fixed w-full z-50 top-0 border-b border-default">
     <div
       class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto pl-0 pr-4 py-4"
     >
@@ -28,7 +26,7 @@
           ☰
         </button>
       </div>
-      
+
       <div v-if="isLoading" class="loading-overlay">
         <Loading />
       </div>
@@ -43,7 +41,11 @@
           class="flex flex-col md:flex-row md:space-x-8 p-4 md:p-0 mt-4 md:mt-0 font-medium"
         >
           <li>
-            <router-link to="/" class="block py-2 text-brand md:text-fg-brand">
+            <router-link
+              to="/"
+              class="block py-2 text-brand md:text-fg-brand"
+              @click="onNavLinkClick"
+            >
               Home
             </router-link>
           </li>
@@ -52,6 +54,7 @@
             <router-link
               to="/about"
               class="block py-2 text-heading hover:text-fg-brand"
+              @click="onNavLinkClick"
             >
               Sobre
             </router-link>
@@ -61,6 +64,7 @@
             <router-link
               to="/services"
               class="block py-2 text-heading hover:text-fg-brand"
+              @click="onNavLinkClick"
             >
               Serviços
             </router-link>
@@ -70,6 +74,7 @@
             <router-link
               to="/contact"
               class="block py-2 text-heading hover:text-fg-brand"
+              @click="onNavLinkClick"
             >
               Contato
             </router-link>
@@ -99,6 +104,11 @@ export default {
       open.value = !open.value;
     };
 
+    const onNavLinkClick = () => {
+      // fecha menu mobile após navegar
+      open.value = false;
+    };
+
     const goToLogin = async () => {
       if (isLoading.value) return;
       isLoading.value = true;
@@ -112,6 +122,7 @@ export default {
       isLoading,
       toggleMenu,
       goToLogin,
+      onNavLinkClick,
     };
   },
 };

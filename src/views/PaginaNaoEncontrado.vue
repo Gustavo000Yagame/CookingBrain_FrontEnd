@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: calc(100vh - 4rem);
+  height: calc(100vh - var(--navbar-height));
   padding: 2rem 0;
 }
 
