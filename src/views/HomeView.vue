@@ -42,11 +42,9 @@ export default {
       imgMascote,
     };
   },
-  setup() {
+  async mounted() {
     const { data, error } = await supabase.auth.getSession();
     console.log(data.session);
-
-    return {};
   },
 };
 </script>
