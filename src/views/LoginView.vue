@@ -34,7 +34,6 @@ const onGoogleSubmit = async () => {
       },
     });
 
-    console.log("Google login data:", data);
     if (error) throw error;
   } catch (error: any) {
     alert(`Erro ao conectar com Google: ${error.message}`);
