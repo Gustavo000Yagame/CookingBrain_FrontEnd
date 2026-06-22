@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { supabase } from "@/services/supabase";
-import LoginForm from "@/components/LoginForm.vue"; 
+import LoginForm from "@/components/LoginForm.vue";
 
 const router = useRouter();
 const isLoading = ref(false);
@@ -14,10 +14,10 @@ const onLoginSubmit = async (data: { email: string; pass: string }) => {
       email: data.email,
       password: data.pass,
     });
-    
+
     if (error) throw error;
-    
-    router.push("/dashboard"); 
+
+    router.push("/dashboard");
   } catch (error: any) {
     alert(`Erro no login: ${error.message}`);
   } finally {
@@ -30,7 +30,7 @@ const onGoogleSubmit = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
-        redirectTo: window.location.origin,
+        redirectTo: "https://cookingbrain.vercel.app",
       },
     });
     if (error) throw error;
@@ -41,9 +41,9 @@ const onGoogleSubmit = async () => {
 </script>
 
 <template>
-  <LoginForm 
-    :is-loading="isLoading" 
-    @login="onLoginSubmit" 
-    @google-login="onGoogleSubmit" 
+  <LoginForm
+    :is-loading="isLoading"
+    @login="onLoginSubmit"
+    @google-login="onGoogleSubmit"
   />
 </template>
