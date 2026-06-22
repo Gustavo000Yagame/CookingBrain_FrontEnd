@@ -42,6 +42,12 @@ export default {
       imgMascote,
     };
   },
+  setup() {
+    const { data, error } = await supabase.auth.getSession();
+    console.log(data.session);
+
+    return {};
+  },
 };
 </script>
 <style scoped>

@@ -27,7 +27,7 @@ const onLoginSubmit = async (data: { email: string; pass: string }) => {
 
 const onGoogleSubmit = async () => {
   try {
-    const { error, data } = await supabase.auth.signInWithOAuth({
+    const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
         redirectTo: "https://cookingbrain.vercel.app",
@@ -35,7 +35,6 @@ const onGoogleSubmit = async () => {
     });
 
     console.log("Google login data:", data);
-
     if (error) throw error;
   } catch (error: any) {
     alert(`Erro ao conectar com Google: ${error.message}`);
