@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-defineProps<{
+const email = ref("");
+const password = ref("");
+
+const props = defineProps<{
   isLoading?: boolean;
 }>();
 
 const emit = defineEmits<{
-  login: [data: { email: string; pass: string }];
-  googleLogin: [];
+  (e: "login", data: { email: string; pass: string }): void;
+  (e: "google-login"): void;
 }>();
-
-const email = ref("");
-const password = ref("");
 
 const handleSubmit = (e: Event) => {
   e.preventDefault();
@@ -19,21 +19,22 @@ const handleSubmit = (e: Event) => {
     email: email.value,
     pass: password.value,
   });
+  email.value = "";
+  password.value = "";
 };
 
-const handleGoogleLogin = (e: Event) => {
-  e.preventDefault();
-  emit("googleLogin");
+const handleGoogleLogin = () => {
+  emit("google-login");
 };
 </script>
 
 <style scoped>
 .login-container {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding-right: 240px;
+  min-height: calc(100vh - var(--navbar-height));
+  padding: 24px 16px;
   background-color: #f4f4f7;
 }
 
@@ -42,8 +43,9 @@ const handleGoogleLogin = (e: Event) => {
   flex-direction: column;
   gap: 10px;
   background-color: #ffffff;
-  padding: 30px;
-  width: 450px;
+  padding: 24px;
+  width: 100%;
+  max-width: 450px;
   border-radius: 20px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
@@ -218,10 +220,13 @@ const handleGoogleLogin = (e: Event) => {
 
       <p class="p">Don't have an account? <span class="span">Sign Up</span></p>
       <p class="p line">Or With</p>
-      type="button" class="btn google" @click="handleGoogleLogin"
-      :disabled="isLoading
       <div class="flex-row">
-        <button class="btn google">
+        <button
+          type="button"
+          class="btn google"
+          @click="handleGoogleLogin"
+          :disabled="isLoading"
+        >
           <svg
             xml:space="preserve"
             style="enable-background: new 0 0 512 512"

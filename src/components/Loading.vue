@@ -1,3 +1,9 @@
+<script>
+export default {
+  name: "Loading",
+};
+</script>
+
 <style scoped>
   .pencil {
     display: block;
