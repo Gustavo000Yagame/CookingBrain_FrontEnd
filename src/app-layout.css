@@ -1,15 +1,14 @@
 :root {
-  --navbar-height: 80px;
+  --navbar-height: 68px;
 }
-
-/* Desktop/tablet */
-@media (max-width: 767px) {
-  :root {
-    --navbar-height: 72px;
-  }
-}
-
 .app-layout {
   min-height: 100vh;
+}
+
+.public-layout {
   padding-top: var(--navbar-height);
+}
+
+@media (max-width: 767px) {
+  :root { --navbar-height: 60px; }
 }
