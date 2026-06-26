@@ -48,9 +48,7 @@
       </div>
     </div>
     <p class="pt-4 text-center text-sm pb-5">
-      Copyright {{ currentYear }} ©
-      <a href="" target="_blank"> PrebuiltUI </a>. All
-      Rights Reserved.
+      Copyright {{ currentYear }} © CookingBrain. Todos os direitos reservados.
     </p>
   </footer>
 </template>

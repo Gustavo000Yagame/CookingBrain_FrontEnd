@@ -1,44 +1,34 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { supabase } from "@/services/supabase";
-import LoginForm from "@/components/LoginForm.vue";
+import { ref } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import { useAuthStore } from '@/stores/auth'
+import LoginForm from '@/components/LoginForm.vue'
 
-const router = useRouter();
-const isLoading = ref(false);
+const router = useRouter()
+const route = useRoute()
+const auth = useAuthStore()
+const isLoading = ref(false)
 
 const onLoginSubmit = async (data: { email: string; pass: string }) => {
-  isLoading.value = true;
+  isLoading.value = true
   try {
-    const { error } = await supabase.auth.signInWithPassword({
-      email: data.email,
-      password: data.pass,
-    });
-
-    if (error) throw error;
-
-    router.push("/dashboard");
+    await auth.signIn(data.email, data.pass)
+    const redirect = (route.query.redirect as string) ?? '/dashboard'
+    router.push(redirect)
   } catch (error: any) {
-    alert(`Erro no login: ${error.message}`);
+    alert(`Erro no login: ${error.message}`)
   } finally {
-    isLoading.value = false;
+    isLoading.value = false
   }
-};
+}
 
 const onGoogleSubmit = async () => {
   try {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: "https://cookingbrain.vercel.app",
-      },
-    });
-
-    if (error) throw error;
+    await auth.signInWithGoogle()
   } catch (error: any) {
-    alert(`Erro ao conectar com Google: ${error.message}`);
+    alert(`Erro ao conectar com Google: ${error.message}`)
   }
-};
+}
 </script>
 
 <template>

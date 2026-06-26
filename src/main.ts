@@ -1,16 +1,22 @@
-import "./assets/main.css";
-import "./app-layout.css";
-import "flowbite";
+import './assets/main.css'
+import './app-layout.css'
+import 'flowbite'
 
-import { createApp } from "vue";
-import { createPinia } from "pinia";
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
 
-import App from "./App.vue";
-import router from "./router";
+import App from './App.vue'
+import router from './router'
+import { useAuthStore } from './stores/auth'
 
-const app = createApp(App);
+const app = createApp(App)
+const pinia = createPinia()
 
-app.use(createPinia());
-app.use(router);
+app.use(pinia)
+app.use(router)
 
-app.mount("#app");
+// Inicializa o estado de autenticação antes de montar
+const auth = useAuthStore()
+auth.initialize().then(() => {
+  app.mount('#app')
+})

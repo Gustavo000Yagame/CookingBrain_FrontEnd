@@ -259,7 +259,7 @@ const handleGoogleLogin = () => {
           Google
         </button>
 
-        <button class="btn apple">
+        <button type="button" class="btn apple" disabled title="Em breve">
           <svg
             xml:space="preserve"
             style="enable-background: new 0 0 22.773 22.773"

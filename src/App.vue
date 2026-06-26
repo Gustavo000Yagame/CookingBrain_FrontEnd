@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { RouterView } from "vue-router";
-// Force rebuild
+import { RouterView } from 'vue-router'
 </script>
 
 <template>
