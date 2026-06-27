@@ -1,8 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
-import DashboardView from '../views/DashboardView.vue'
-import PaginaNaoEncontrado from '../views/PaginaNaoEncontrado.vue'
+import DashboardLayout from '../views/DashboardLayout.vue'
 import { supabase } from '@/services/supabase'
 
 const router = createRouter({
@@ -21,24 +20,35 @@ const router = createRouter({
     },
     {
       path: '/dashboard',
-      name: 'dashboard',
-      component: DashboardView,
+      component: DashboardLayout,
       meta: { requiresAuth: true },
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: PaginaNaoEncontrado,
-    },
-    {
-      path: '/services',
-      name: 'services',
-      component: PaginaNaoEncontrado,
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: PaginaNaoEncontrado,
+      children: [
+        {
+          path: '',
+          name: 'dashboard',
+          component: () => import('../views/DashboardView.vue'),
+        },
+        {
+          path: 'pedidos',
+          name: 'dashboard-pedidos',
+          component: () => import('../views/dashboard/PedidosView.vue'),
+        },
+        {
+          path: 'produtos',
+          name: 'dashboard-produtos',
+          component: () => import('../views/dashboard/ProdutosView.vue'),
+        },
+        {
+          path: 'clientes',
+          name: 'dashboard-clientes',
+          component: () => import('../views/dashboard/ClientesView.vue'),
+        },
+        {
+          path: 'relatorios',
+          name: 'dashboard-relatorios',
+          component: () => import('../views/dashboard/RelatoriosView.vue'),
+        },
+      ],
     },
     {
       path: '/:pathMatch(.*)*',
