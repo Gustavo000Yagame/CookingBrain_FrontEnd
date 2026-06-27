@@ -33,6 +33,7 @@ const router = useRouter()
         <img :src="imgMascote" alt="CookingBrain" />
       </div>
     </main>
+
     <Footer />
   </div>
 </template>
@@ -177,9 +178,15 @@ const router = useRouter()
   line-height: 1.6;
 }
 
-@media (max-width: 600px) {
+.hero-image img {
+  max-width: 150px; 
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
   .hero { flex-direction: column; padding: 48px 24px 40px; gap: 32px; }
-  .hero-image img { max-width: 150px; }
+  .hero-image img { max-width: 260px; }
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
