@@ -177,7 +177,7 @@ const router = useRouter()
   line-height: 1.6;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   .hero { flex-direction: column; padding: 48px 24px 40px; gap: 32px; }
   .hero-image img { max-width: 150px; }
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
