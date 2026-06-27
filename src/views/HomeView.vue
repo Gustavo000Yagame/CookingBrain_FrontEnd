@@ -179,7 +179,7 @@ const router = useRouter()
 }
 
 .hero-image img {
-  max-width: 750px; 
+  max-width: 650px; 
   width: 100%;
   height: auto;
 }
