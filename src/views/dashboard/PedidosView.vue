@@ -45,10 +45,6 @@ onMounted(async () => {
 
     <div v-else-if="error" class="error-box">{{ error }}</div>
 
-    <div v-else-if="pedidos.length === 0" class="empty">
-      Nenhum pedido cadastrado ainda.
-    </div>
-
     <div v-else class="table-wrap">
       <table class="data-table">
         <thead>
@@ -95,5 +91,4 @@ onMounted(async () => {
 .skeleton-row { height: 48px; border-radius: 8px; background: linear-gradient(90deg, #f0f0f0 25%, #e8e8e8 50%, #f0f0f0 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
 @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 .error-box { background: #fef2f2; border: 1px solid #fecaca; color: #b91c1c; border-radius: 8px; padding: 14px 16px; font-size: 13px; }
-.empty { background: #fff; border-radius: 12px; border: 1px dashed #e2e8f0; padding: 48px; text-align: center; color: #94a3b8; font-size: 13px; }
 </style>
