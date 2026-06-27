@@ -26,13 +26,49 @@ const router = useRouter()
           <button class="btn-primary" @click="router.push('/login')">
             Acessar o sistema
           </button>
-          <a class="btn-ghost" href="">Saiba mais</a>
+          <a class="btn-ghost" href="#funcionalidades">Saiba mais</a>
         </div>
       </div>
       <div class="hero-image">
         <img :src="imgMascote" alt="CookingBrain" />
       </div>
     </main>
+
+    <section id="funcionalidades" class="features">
+      <div class="features-inner">
+        <h2 class="section-title">O que o CookingBrain faz por você</h2>
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h3>Dashboard em tempo real</h3>
+            <p>Acompanhe faturamento, pedidos e desempenho sem precisar abrir relatórios.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </div>
+            <h3>Gestão de pedidos</h3>
+            <p>Da entrada ao fechamento, acompanhe cada pedido por status em tempo real.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            </div>
+            <h3>Relatórios de vendas</h3>
+            <p>Histórico diário, semanal e mensal com gráficos claros para embasar decisões.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Cadastro de clientes</h3>
+            <p>Mantenha o histórico de quem frequenta seu estabelecimento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <Footer />
   </div>
@@ -119,6 +155,15 @@ const router = useRouter()
 }
 .btn-ghost:hover { border-color: #94a3b8; color: #1e293b; }
 
+.hero-image {
+  flex-shrink: 0;
+}
+.hero-image img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
 
 .features {
   background: #f8fafc;
@@ -176,12 +221,6 @@ const router = useRouter()
   font-size: 13px;
   color: #64748b;
   line-height: 1.6;
-}
-
-.hero-image img {
-  max-width: 600px; 
-  width: 100%;
-  height: auto;
 }
 
 @media (max-width: 900px) {

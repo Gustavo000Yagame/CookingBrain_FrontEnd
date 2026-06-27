@@ -1,9 +1,13 @@
 :root {
   --navbar-height: 68px;
 }
+
+/* Páginas públicas (home, login) recebem padding para a navbar fixa */
 .app-layout {
   min-height: 100vh;
 }
+
+/* Views que usam a navbar flutuante precisam de padding-top */
 .public-layout {
   padding-top: var(--navbar-height);
 }
