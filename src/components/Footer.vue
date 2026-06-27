@@ -1,6 +1,6 @@
 <template>
-  <footer class="px-6 pt-8 md:px-16 lg:px-36 w-full text-gray-300">
-    <div
+<footer class="w-full">
+  <div class="max-w-[1160px] mx-auto px-6 pt-8 md:px-16">
       class="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500 pb-10"
     >
       <div class="md:max-w-96">

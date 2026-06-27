@@ -26,7 +26,7 @@ const router = useRouter()
           <button class="btn-primary" @click="router.push('/login')">
             Acessar o sistema
           </button>
-          <a class="btn-ghost" href="#funcionalidades">Saiba mais</a>
+          <a class="btn-ghost" href="">Saiba mais</a>
         </div>
       </div>
       <div class="hero-image">
