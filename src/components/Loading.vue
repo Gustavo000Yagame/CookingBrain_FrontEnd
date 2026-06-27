@@ -66,7 +66,6 @@ export default {
     transform: translate(100px,100px) rotate(-113deg);
   }
 
-  /* Animations */
   @keyframes pencilBody1 {
     from,
   	to {
@@ -76,7 +75,7 @@ export default {
 
     50% {
       stroke-dashoffset: 150.8;
-   /* 3/8 of diameter */
+   
       transform: rotate(-225deg);
     }
   }

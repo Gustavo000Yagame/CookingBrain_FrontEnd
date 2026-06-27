@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
-import type { ProdutoMaisVendido } from '@/interface/api'
+import type { ProdutoMaisVendido } from '@/types/api'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend)
 

@@ -7,7 +7,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js'
-import type { ResumoPedidos } from '@/interface/api'
+import type { ResumoPedidos } from '@/types/api'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 

@@ -33,6 +33,7 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
     <DashSidebar />
 
     <div class="dash-main">
+      
       <header class="dash-header">
         <div>
           <h1 class="page-title">Visão Geral</h1>
@@ -129,6 +130,7 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
       </section>
 
       <section class="charts-grid">
+        
         <ChartCard
           title="Faturamento e Pedidos por Dia"
           class="chart-wide"
@@ -161,7 +163,6 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
         </ChartCard>
       </section>
 
-      <!-- Estado vazio geral (API retornou mas sem dados) -->
       <div
         v-if="!store.loading && !store.error && store.data && store.data.pedidos.total === 0"
         class="empty-dashboard"
@@ -192,7 +193,6 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
   overflow-y: auto;
 }
 
-/* Header */
 .dash-header {
   display: flex;
   align-items: flex-start;
@@ -237,7 +237,6 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* KPI grids */
 .kpi-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -247,7 +246,6 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
   grid-template-columns: repeat(5, 1fr);
 }
 
-/* Charts */
 .charts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -257,7 +255,6 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
   grid-column: 1 / -1;
 }
 
-/* States */
 .empty-state {
   font-size: 13px;
   color: #94a3b8;
@@ -279,7 +276,6 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
   font-size: 13px;
 }
 
-/* Responsivo */
 @media (max-width: 1100px) {
   .kpi-grid--5 { grid-template-columns: repeat(3, 1fr); }
 }

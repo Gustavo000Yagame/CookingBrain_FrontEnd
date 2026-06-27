@@ -1,3 +1,4 @@
+
 export type StatusPedido =
   | 'PENDENTE'
   | 'EM_PREPARO'
@@ -5,37 +6,46 @@ export type StatusPedido =
   | 'ENTREGUE'
   | 'CANCELADO'
 
-export interface Pedido {
-  id: number
-  numeroPedido: string
-  status: StatusPedido
-  total: number
-  createdAt: string
-  clienteNome?: string
-  itens?: ItemPedido[]
+export interface PedidoResponse {
+  idPedido: number
+  status: string
+  formpag: string      
+  idCliente: number
+  nome: string         
 }
 
-export interface ItemPedido {
-  produtoId: number
-  nomeProduto: string
-  quantidade: number
-  precoUnitario: number
-}
-
-export interface Produto {
-  id: number
+export interface PratoResponse {
+  idPrato: number
   nome: string
+  descricao: string
   preco: number
-  categoria: string
-  ativo: boolean
+  idRestaurante: number
+  pedidos: PedidoResumido[]
+  produtosEstoque: ProdutoEstoqueResumido[]
 }
 
-export interface Cliente {
-  id: number
+export interface PedidoResumido {
+  idPedido: number
+  status: string
+  formpag: string
+}
+
+export interface ProdutoEstoqueResumido {
+  idProdutoEstoque: number
+  nome: string
+}
+
+export interface ClienteResponse {
+  idCliente: number
   nome: string
   email: string
-  telefone?: string
-  createdAt: string
+  pedidos: PedidoResponse[]
+}
+
+export interface EstoqueResponse {
+  idProduto: number
+  quantidade: number
+  nome: string
 }
 
 export interface ResumoFinanceiro {
@@ -73,19 +83,4 @@ export interface DashboardData {
   produtosMaisVendidos: ProdutoMaisVendido[]
   vendasPorDia: VendaDiaria[]
   clientesAtendidos: number
-}
-
-
-export interface ApiResponse<T> {
-  data: T | null
-  error: string | null
-  loading: boolean
-}
-
-export interface PageResponse<T> {
-  content: T[]
-  totalElements: number
-  totalPages: number
-  number: number
-  size: number
 }

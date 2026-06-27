@@ -15,7 +15,6 @@ const pinia = createPinia()
 app.use(pinia)
 app.use(router)
 
-// Inicializa o estado de autenticação antes de montar
 const auth = useAuthStore()
 auth.initialize().then(() => {
   app.mount('#app')

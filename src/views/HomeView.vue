@@ -34,7 +34,6 @@ const router = useRouter()
       </div>
     </main>
 
-    <!-- Funcionalidades -->
     <section id="funcionalidades" class="features">
       <div class="features-inner">
         <h2 class="section-title">O que o CookingBrain faz por você</h2>
@@ -166,7 +165,6 @@ const router = useRouter()
   display: block;
 }
 
-/* Features */
 .features {
   background: #f8fafc;
   border-top: 1px solid #e2e8f0;
@@ -225,7 +223,6 @@ const router = useRouter()
   line-height: 1.6;
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .hero { flex-direction: column; padding: 48px 24px 40px; gap: 32px; }
   .hero-image img { max-width: 260px; }

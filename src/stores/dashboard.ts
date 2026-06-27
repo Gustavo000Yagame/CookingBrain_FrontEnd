@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import type { DashboardData } from '@/interface/api'
+import type { DashboardData } from '@/types/api'
 import { dashboardService } from '@/services/dashboard.service'
 
 export const useDashboardStore = defineStore('dashboard', () => {
@@ -10,7 +10,7 @@ export const useDashboardStore = defineStore('dashboard', () => {
   const lastFetch = ref<Date | null>(null)
 
   async function fetch(force = false) {
-    // Evita refetch desnecessário dentro de 2 minutos
+    
     if (!force && lastFetch.value) {
       const diff = Date.now() - lastFetch.value.getTime()
       if (diff < 2 * 60 * 1000) return

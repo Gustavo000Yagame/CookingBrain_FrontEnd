@@ -1,18 +1,24 @@
 import { http } from './http'
-import type { Pedido, PageResponse, StatusPedido } from '@/interface/api'
 
-const BASE = '/api/pedidos'
+export interface PedidoResponse {
+  idPedido: number
+  status: string
+  formpag: string
+  idCliente: number
+  nome: string
+}
+
+export interface PedidoRequest {
+  status: string
+  formaPag: string
+  clienteId: number
+  pratos: { idPrato: number }[]
+}
 
 export const pedidosService = {
-  listar: (page = 0, size = 20) =>
-    http.get<PageResponse<Pedido>>(`${BASE}?page=${page}&size=${size}`),
-
-  buscarPorId: (id: number) =>
-    http.get<Pedido>(`${BASE}/${id}`),
-
-  listarPorStatus: (status: StatusPedido) =>
-    http.get<Pedido[]>(`${BASE}?status=${status}`),
-
-  atualizarStatus: (id: number, status: StatusPedido) =>
-    http.patch<Pedido>(`${BASE}/${id}/status`, { status }),
+  listar: ()                         => http.get<PedidoResponse[]>('/pedidos'),
+  buscarPorId: (id: number)          => http.get<PedidoResponse>(`/pedidos/${id}`),
+  salvar: (dto: PedidoRequest)       => http.post<PedidoResponse>('/pedidos', dto),
+  atualizar: (id: number, dto: PedidoRequest) => http.put<PedidoResponse>(`/pedidos/${id}`, dto),
+  deletar: (id: number)              => http.delete<void>(`/pedidos/${id}`),
 }

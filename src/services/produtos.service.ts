@@ -1,15 +1,27 @@
 import { http } from './http'
-import type { Produto, PageResponse } from '@/interface/api'
 
-const BASE = '/api/produtos'
+export interface PratoResponse {
+  idPrato: number
+  nome: string
+  descricao: string
+  preco: number
+  idRestaurante: number
+  pedidos: { idPedido: number; status: string; formpag: string }[]
+  produtosEstoque: { idProdutoEstoque: number; nome: string }[]
+}
 
-export const produtosService = {
-  listar: (page = 0, size = 50) =>
-    http.get<PageResponse<Produto>>(`${BASE}?page=${page}&size=${size}`),
+export interface PratoRequest {
+  nome: string
+  descricao: string
+  preco: number
+  idRestaurante: number
+}
 
-  buscarPorId: (id: number) =>
-    http.get<Produto>(`${BASE}/${id}`),
-
-  maisVendidos: (limite = 10) =>
-    http.get<Produto[]>(`${BASE}/mais-vendidos?limite=${limite}`),
+export const pratosService = {
+  listar: ()                         => http.get<PratoResponse[]>('/pratos'),
+  buscarPorId: (id: number)          => http.get<PratoResponse>(`/pratos/${id}`),
+  buscarPorNome: (nome: string)      => http.get<PratoResponse[]>(`/pratos/buscarPrato/nome?nome=${encodeURIComponent(nome)}`),
+  salvar: (dto: PratoRequest)        => http.post<PratoResponse>('/pratos', dto),
+  atualizar: (id: number, dto: PratoRequest) => http.put<PratoResponse>(`/pratos/${id}`, dto),
+  deletar: (id: number)              => http.delete<void>(`/pratos/${id}`),
 }

@@ -1,3 +1,4 @@
+
 import { supabase } from './supabase'
 
 const BASE_URL = import.meta.env.VITE_API_URL ?? 'https://cookingbrain-backend.onrender.com'
@@ -35,7 +36,7 @@ async function request<T>(
 
   if (!res.ok) {
     let body: unknown
-    try { body = await res.json() } catch { /* vazio */ }
+    try { body = await res.json() } catch {  }
     const message =
       (body as any)?.message ??
       (body as any)?.error ??
@@ -43,7 +44,6 @@ async function request<T>(
     throw new ApiError(res.status, message, body)
   }
 
-  // 204 No Content
   if (res.status === 204) return undefined as unknown as T
 
   return res.json() as Promise<T>
