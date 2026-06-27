@@ -75,7 +75,7 @@
           </div>
         </div>
       </div>
-      <p class="pt-5 text-center text-sm text-gray-500">
+      <p class="pt-5 text-center font-bold  text-gray-500">
         Copyright {{ currentYear }} © CookingBrain. Todos os direitos reservados.
       </p>
 
