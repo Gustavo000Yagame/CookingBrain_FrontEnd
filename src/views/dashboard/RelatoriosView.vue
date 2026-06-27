@@ -62,7 +62,6 @@ onMounted(async () => {
       <KpiCard
         label="Markup Médio do Cardápio"
         :value="markupMedio !== null ? markupMedio.toFixed(1) + '%' : ''"
-        :
         :accent="markupMedio !== null && markupMedio >= markupMinimo ? 'green' : 'rose'"
       />
       <KpiCard
@@ -73,7 +72,6 @@ onMounted(async () => {
       <KpiCard
         label="Pratos Abaixo do Mínimo"
         :value="pratosAbaixo"
-        :
         :accent="pratosAbaixo > 0 ? 'rose' : 'green'"
       />
       <KpiCard
