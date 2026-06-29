@@ -6,6 +6,7 @@ export interface PedidoResponse {
   formpag: string
   idCliente: number
   nome: string
+  itens?: Array<{ idPrato: number; nome: string; quantidade?: number }>
 }
 
 export interface PedidoRequest {
@@ -16,9 +17,16 @@ export interface PedidoRequest {
 }
 
 export const pedidosService = {
-  listar: ()                         => http.get<PedidoResponse[]>('/pedidos'),
-  buscarPorId: (id: number)          => http.get<PedidoResponse>(`/pedidos/${id}`),
-  salvar: (dto: PedidoRequest)       => http.post<PedidoResponse>('/pedidos', dto),
+  listar: () => http.get<PedidoResponse[]>('/pedidos'),
+  buscarPorId: (id: number) => http.get<PedidoResponse>(`/pedidos/${id}`),
+  salvar: (dto: PedidoRequest) => http.post<PedidoResponse>('/pedidos', dto),
   atualizar: (id: number, dto: PedidoRequest) => http.put<PedidoResponse>(`/pedidos/${id}`, dto),
-  deletar: (id: number)              => http.delete<void>(`/pedidos/${id}`),
+  alterarStatus: (id: number, status: string, pedido: PedidoResponse) =>
+    http.put<PedidoResponse>(`/pedidos/${id}`, {
+      status,
+      formaPag: pedido.formpag ?? '',
+      clienteId: pedido.idCliente ?? 0,
+      pratos: (pedido.itens ?? []).map(item => ({ idPrato: item.idPrato })),
+    }),
+  deletar: (id: number) => http.delete<void>(`/pedidos/${id}`),
 }

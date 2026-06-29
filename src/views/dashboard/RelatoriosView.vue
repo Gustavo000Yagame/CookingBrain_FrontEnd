@@ -18,6 +18,12 @@ const { getCusto, calcMarkup, calcMargem, markupMinimo, markupMedioDoCardapio } 
 const fmt = (v: number) =>
   new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v)
 
+const avaliacoes = [
+  { label: 'Atendimento', valor: 4.6 },
+  { label: 'Tempo de Entrega', valor: 4.2 },
+  { label: 'Qualidade', valor: 4.8 },
+]
+
 const markupMedio = computed(() => markupMedioDoCardapio.value(pratos.value))
 
 const pratosComCusto = computed(() =>
@@ -81,6 +87,23 @@ onMounted(async () => {
       />
     </section>
 
+    <section class="review-card">
+      <div class="review-header">
+        <h2 class="section-title">Avaliações</h2>
+        <span class="review-summary">Média geral 4,5/5</span>
+      </div>
+
+      <div v-for="item in avaliacoes" :key="item.label" class="review-row">
+        <div class="review-meta">
+          <span>{{ item.label }}</span>
+          <strong>{{ item.valor.toFixed(1) }}/5</strong>
+        </div>
+        <div class="review-bar">
+          <div class="review-fill" :style="{ width: `${(item.valor / 5) * 100}%` }" />
+        </div>
+      </div>
+    </section>
+
     <div class="charts-col">
       <ChartCard title="Markup por Prato" v-if="pratosComCusto.length > 0">
         <MarkupChart :pratos="pratosComCusto" :markup-minimo="markupMinimo" />
@@ -106,6 +129,13 @@ onMounted(async () => {
 .page-title { font-size: 20px; font-weight: 700; color: #0f172a; }
 .section-title { font-size: 14px; font-weight: 600; color: #374151; letter-spacing: 0.02em; }
 .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.review-card { background: #fff; border: 1px solid #e8eaf0; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+.review-header { display: flex; justify-content: space-between; align-items: center; }
+.review-summary { color: #64748b; font-size: 12px; }
+.review-row { display: flex; flex-direction: column; gap: 6px; }
+.review-meta { display: flex; justify-content: space-between; font-size: 13px; color: #334155; }
+.review-bar { height: 8px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
+.review-fill { height: 100%; border-radius: inherit; background: linear-gradient(90deg, #10b981, #3b82f6); }
 .charts-col { display: flex; flex-direction: column; gap: 16px; }
 @media (max-width: 900px) { .kpi-row { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 480px) { .kpi-row { grid-template-columns: 1fr; } }
