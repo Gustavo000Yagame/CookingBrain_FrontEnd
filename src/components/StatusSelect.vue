@@ -37,7 +37,7 @@ const onChange = async (e: Event) => {
     }
     const backendStatus = map[v] ?? v.toUpperCase()
     // call service to alter status; pass minimal payload so it doesn't break
-    await pedidosService.alterarStatus(props.pedidoId, backendStatus)
+    await pedidosService.alterarStatus(props.pedidoId, backendStatus, { status: backendStatus } as any)
     emit('saved', backendStatus)
   } catch (err: any) {
     emit('error', err?.message ?? String(err))

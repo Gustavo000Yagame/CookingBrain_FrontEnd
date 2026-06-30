@@ -21,7 +21,12 @@ export const pedidosService = {
   buscarPorId: (id: number) => http.get<PedidoResponse>(`/pedidos/${id}`),
   salvar: (dto: PedidoRequest) => http.post<PedidoResponse>('/pedidos', dto),
   atualizar: (id: number, dto: PedidoRequest) => http.put<PedidoResponse>(`/pedidos/${id}`, dto),
-  alterarStatus: (id: number, status: string) =>
-    http.patch<PedidoResponse>(`/pedidos/${id}/status`, { status }),
+  alterarStatus: (id: number, status: string, pedido: PedidoResponse) =>
+    http.put<PedidoResponse>(`/pedidos/${id}`, {
+      status,
+      formaPag: pedido.formpag ?? '',
+      clienteId: pedido.idCliente ?? 0,
+      pratos: (pedido.itens ?? []).map(item => ({ idPrato: item.idPrato })),
+    }),
   deletar: (id: number) => http.delete<void>(`/pedidos/${id}`),
 }
