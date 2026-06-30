@@ -60,7 +60,7 @@ onMounted(async () => {
 <template>
   <div class="page">
     <div class="page-header">
-      <h1 class="page-title">Produtos Análise de Markup</h1>
+      <h1 class="page-title">Produtos — Análise de Markup</h1>
       <div class="markup-config">
         <label class="config-label">Markup mínimo</label>
         <div class="config-input-wrap">
