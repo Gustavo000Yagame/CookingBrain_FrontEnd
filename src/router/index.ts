@@ -63,7 +63,22 @@ const router = createRouter({
           name: 'dashboard-relatorios',
           component: () => import('../views/dashboard/RelatoriosView.vue'),
         },
+        {
+          path: 'criar-pedido',
+          name: 'dashboard-criar-pedido',
+          component: () => import('../views/dashboard/CriarPedidoView.vue'),
+        },
+        {
+          path: 'avaliacoes',
+          name: 'dashboard-avaliacoes',
+          component: () => import('../views/dashboard/AvaliacoesView.vue'),
+        },
       ],
+    },
+    {
+      path: '/atalho-secreto',
+      name: 'atalho-secreto',
+      component: () => import('../views/AtalhoSecreto.vue'),
     },
     {
       path: '/:pathMatch(.*)*',

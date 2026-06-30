@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { pedidosService, type PedidoResponse } from '@/services/pedidos.service'
+import { pratosService } from '@/services/produtos.service'
 
 const pedidos = ref<PedidoResponse[]>([])
 const loading = ref(true)
@@ -73,6 +74,26 @@ onMounted(async () => {
   } finally {
     loading.value = false
   }
+})
+
+const enrichProdutos = async () => {
+  const promises = pedidos.value.map(async p => {
+    if (!p.itens?.length) return
+    await Promise.all(p.itens.map(async item => {
+      if (!item.nome) {
+        try {
+          const prato = await pratosService.buscarPorId(item.idPrato)
+          item.nome = prato.nome
+        } catch { /* ignore */ }
+      }
+    }))
+  })
+  await Promise.all(promises)
+}
+
+onMounted(async () => {
+  // enrich after initial load
+  await enrichProdutos()
 })
 </script>
 

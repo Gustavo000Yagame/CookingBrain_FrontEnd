@@ -9,6 +9,7 @@ import ProdutosChart from '@/components/dashboard/ProdutosChart.vue'
 import StatusPedidosChart from '@/components/dashboard/StatusPedidosChart.vue'
 import MarkupChart from '@/components/dashboard/MarkupChart.vue'
 import KpiCard from '@/components/dashboard/KpiCard.vue'
+import RatingBar from '@/components/RatingBar.vue'
 
 const store = useDashboardStore()
 const pratos = ref<PratoResponse[]>([])
@@ -115,6 +116,14 @@ onMounted(async () => {
 
       <ChartCard title="Produtos Mais Pedidos" :loading="store.loading">
         <ProdutosChart v-if="store.data?.produtosMaisVendidos?.length" :produtos="store.data.produtosMaisVendidos" />
+      </ChartCard>
+
+      <ChartCard title="Avaliações dos Pratos" :loading="store.loading">
+        <div class="space-y-4">
+          <div v-for="p in store.data?.produtosMaisVendidos ?? []" :key="p.produtoId">
+            <RatingBar :label="p.nome ?? p.produtoId.toString()" :score="Math.min(5, 1 + ((p.quantidade ?? 0) / (store.data?.produtosMaisVendidos?.[0]?.quantidade ?? 1)) * 4)" />
+          </div>
+        </div>
       </ChartCard>
 
       <ChartCard title="Faturamento ao Longo do Tempo" :loading="store.loading">
