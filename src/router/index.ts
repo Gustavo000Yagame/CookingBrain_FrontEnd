@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import DashboardLayout from '../views/DashboardLayout.vue'
 import { supabase } from '@/services/supabase'
+import { api } from '@/services/api.js'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -90,6 +91,10 @@ const router = createRouter({
 
 router.beforeEach(async (to) => {
   const { data } = await supabase.auth.getSession()
+
+  api.defaults.headers.common.Authorization =
+  `Bearer ${data.session?.access_token}`
+  
   const isAuthenticated = !!data.session
 
   if (to.meta.requiresAuth && !isAuthenticated) {
