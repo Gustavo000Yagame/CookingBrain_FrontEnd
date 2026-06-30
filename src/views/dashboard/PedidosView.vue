@@ -57,7 +57,7 @@ const handleAlterarStatus = async (pedido: PedidoResponse) => {
 
   try {
     savingId.value = pedido.idPedido
-    const atualizado = await pedidosService.alterarStatus(pedido.idPedido, nextStatus, pedido)
+    const atualizado = await pedidosService.alterarStatus(pedido.idPedido, nextStatus)
     updatePedidoStatus(pedido.idPedido, atualizado.status ?? nextStatus)
   } catch (e: any) {
     error.value = e?.message ?? 'Erro ao atualizar status.'
