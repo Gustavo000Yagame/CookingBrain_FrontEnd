@@ -19,6 +19,11 @@ const router = createRouter({
       meta: { guestOnly: true },
     },
     {
+      path: '/pedidos',
+      name: 'pedidos',
+      component: () => import('../views/dashboard/PedidosView.vue'),
+    },
+    {
       path: '/dashboard',
       component: DashboardLayout,
       meta: { requiresAuth: true },
@@ -27,11 +32,6 @@ const router = createRouter({
           path: '',
           name: 'dashboard',
           component: () => import('../views/DashboardView.vue'),
-        },
-        {
-          path: 'pedidos',
-          name: 'dashboard-pedidos',
-          component: () => import('../views/dashboard/PedidosView.vue'),
         },
         {
           path: 'produtos',
