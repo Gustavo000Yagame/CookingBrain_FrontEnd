@@ -19,11 +19,6 @@ const router = createRouter({
       meta: { guestOnly: true },
     },
     {
-      path: '/pedidos',
-      name: 'pedidos',
-      component: () => import('../views/dashboard/PedidosView.vue'),
-    },
-    {
       path: '/dashboard',
       component: DashboardLayout,
       meta: { requiresAuth: true },
@@ -32,6 +27,11 @@ const router = createRouter({
           path: '',
           name: 'dashboard',
           component: () => import('../views/DashboardView.vue'),
+        },
+        {
+          path: 'pedidos',
+          name: 'dashboard-pedidos',
+          component: () => import('../views/dashboard/PedidosView.vue'),
         },
         {
           path: 'produtos',
@@ -63,22 +63,7 @@ const router = createRouter({
           name: 'dashboard-relatorios',
           component: () => import('../views/dashboard/RelatoriosView.vue'),
         },
-        {
-          path: 'criar-pedido',
-          name: 'dashboard-criar-pedido',
-          component: () => import('../views/dashboard/CriarPedidoView.vue'),
-        },
-        {
-          path: 'avaliacoes',
-          name: 'dashboard-avaliacoes',
-          component: () => import('../views/dashboard/AvaliacoesView.vue'),
-        },
       ],
-    },
-    {
-      path: '/atalho-secreto',
-      name: 'atalho-secreto',
-      component: () => import('../views/AtalhoSecreto.vue'),
     },
     {
       path: '/:pathMatch(.*)*',
