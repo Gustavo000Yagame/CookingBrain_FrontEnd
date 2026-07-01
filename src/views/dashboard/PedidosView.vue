@@ -49,7 +49,7 @@ const handleAlterarStatus = async (pedido: PedidoResponse) => {
     savingId.value = pedido.idPedido
     const atualizado = await pedidosService.alterarStatus(pedido.idPedido, nextStatus)
     const idx = pedidos.value.findIndex(p => p.idPedido === pedido.idPedido)
-    if (idx !== -1) pedidos.value[idx].status = atualizado.status ?? nextStatus
+    if (idx !== -1) pedidos.value[idx]!.status = atualizado.status ?? nextStatus
   } catch (e: any) {
     error.value = e?.message ?? 'Erro ao atualizar status.'
   } finally {
