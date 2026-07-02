@@ -1,3 +1,7 @@
+
+<img width="1687" height="952" alt="image" src="https://github.com/user-attachments/assets/0216f753-50f3-46f5-b188-4b2c343fa369" />
+
+
 # 🍽️ CookingBrain - Front-end
 
 O **CookingBrain** é um sistema ERP desenvolvido para otimizar a gestão de restaurantes, oferecendo uma interface moderna, intuitiva e responsiva para o gerenciamento de estoque, produtos, pedidos, fornecedores, clientes e indicadores financeiros.
