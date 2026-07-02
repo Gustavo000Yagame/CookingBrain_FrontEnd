@@ -2,7 +2,6 @@
 defineProps<{
   label: string
   value: string | number
-  sub?: string
   loading?: boolean
   accent?: 'blue' | 'green' | 'amber' | 'rose' | 'violet'
 }>()
@@ -13,7 +12,6 @@ defineProps<{
     <p class="kpi-label">{{ label }}</p>
     <div v-if="loading" class="kpi-skeleton" />
     <p v-else class="kpi-value">{{ value }}</p>
-    <p v-if="sub && !loading" class="kpi-sub">{{ sub }}</p>
   </div>
 </template>
 
@@ -36,10 +34,10 @@ defineProps<{
   top: 0; left: 0; right: 0;
   height: 3px;
 }
-.kpi-card.blue::before  { background: #3b82f6; }
-.kpi-card.green::before { background: #22c55e; }
-.kpi-card.amber::before { background: #f59e0b; }
-.kpi-card.rose::before  { background: #f43f5e; }
+.kpi-card.blue::before   { background: #3b82f6; }
+.kpi-card.green::before  { background: #22c55e; }
+.kpi-card.amber::before  { background: #f59e0b; }
+.kpi-card.rose::before   { background: #f43f5e; }
 .kpi-card.violet::before { background: #8b5cf6; }
 
 .kpi-label {
@@ -56,16 +54,11 @@ defineProps<{
   color: #111827;
   line-height: 1.1;
   margin-top: 4px;
-}
-
-.kpi-sub {
-  font-size: 12px;
-  color: #9ca3af;
-  margin-top: 2px;
+  min-height: 34px;
 }
 
 .kpi-skeleton {
-  height: 32px;
+  height: 34px;
   width: 60%;
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;

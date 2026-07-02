@@ -38,33 +38,35 @@ export async function fetchDashboard(): Promise<DashboardData> {
     http.get<ClienteRaw[]>('/clientes'),
   ])
 
+  const normalize = (s?: string | null) => (s ?? '').toUpperCase().trim()
+
   const resumoPedidos: ResumoPedidos = {
-    total: pedidos.length,
-    pendentes:   pedidos.filter(p => p.status?.toUpperCase() === 'PENDENTE').length,
-    emPreparo:   pedidos.filter(p => p.status?.toUpperCase() === 'EM_PREPARO' || p.status?.toUpperCase() === 'EM PREPARO').length,
-    prontos:     pedidos.filter(p => p.status?.toUpperCase() === 'PRONTO').length,
-    entregues:   pedidos.filter(p => p.status?.toUpperCase() === 'ENTREGUE').length,
-    cancelados:  pedidos.filter(p => p.status?.toUpperCase() === 'CANCELADO').length,
+    total:     pedidos.length,
+    pendentes: pedidos.filter(p => normalize(p.status) === 'PENDENTE').length,
+    emPreparo: pedidos.filter(p => ['EM_PREPARO', 'EM PREPARO'].includes(normalize(p.status))).length,
+    prontos:   pedidos.filter(p => normalize(p.status) === 'PRONTO').length,
+    entregues: pedidos.filter(p => normalize(p.status) === 'ENTREGUE').length,
+    cancelados:pedidos.filter(p => normalize(p.status) === 'CANCELADO').length,
   }
 
   const produtosMaisVendidos: ProdutoMaisVendido[] = pratos
     .map(p => ({
       produtoId: p.idPrato,
-      nome: p.nome,
+      nome: p.nome ?? `Prato ${p.idPrato}`,
       quantidade: p.pedidos?.length ?? 0,
       receita: (p.pedidos?.length ?? 0) * (p.preco ?? 0),
     }))
+    .filter(p => p.quantidade > 0)
     .sort((a, b) => b.quantidade - a.quantidade)
     .slice(0, 10)
 
-  const pedidosAtivos = pedidos.filter(
-    p => !['CANCELADO'].includes(p.status?.toUpperCase())
-  )
+  const pedidosAtivos = pedidos.filter(p => normalize(p.status) !== 'CANCELADO')
+
   const faturamentoTotal = pratos.reduce((acc, prato) => {
-    const pedidosDoPrato = prato.pedidos?.filter(
-      pp => !['CANCELADO'].includes(pp.status?.toUpperCase())
-    ) ?? []
-    return acc + pedidosDoPrato.length * (prato.preco ?? 0)
+    const ativos = (prato.pedidos ?? []).filter(
+      pp => normalize(pp.status) !== 'CANCELADO'
+    )
+    return acc + ativos.length * (prato.preco ?? 0)
   }, 0)
 
   const ticketMedio = pedidosAtivos.length > 0
@@ -72,8 +74,8 @@ export async function fetchDashboard(): Promise<DashboardData> {
     : 0
 
   const financeiro: ResumoFinanceiro = {
-    faturamentoDiario: 0,   
-    faturamentoSemanal: 0,  
+    faturamentoDiario: 0,
+    faturamentoSemanal: 0,
     faturamentoMensal: faturamentoTotal,
     ticketMedio,
   }

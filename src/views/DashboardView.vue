@@ -9,7 +9,6 @@ import ProdutosChart from '@/components/dashboard/ProdutosChart.vue'
 import ErrorBanner from '@/components/dashboard/ErrorBanner.vue'
 
 const store = useDashboardStore()
-
 onMounted(() => store.fetch())
 
 const fmt = (v: number) =>
@@ -22,9 +21,9 @@ const now = computed(() => {
   })
 })
 
-const hasVendas   = computed(() => (store.data?.vendasPorDia?.length ?? 0) > 0)
 const hasProdutos = computed(() => (store.data?.produtosMaisVendidos?.length ?? 0) > 0)
 const hasPedidos  = computed(() => !!store.data?.pedidos)
+const hasVendas   = computed(() => (store.data?.vendasPorDia?.length ?? 0) > 0)
 </script>
 
 <template>
@@ -55,31 +54,78 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
     <ErrorBanner v-if="store.error" :message="store.error" @retry="store.fetch(true)" />
 
     <section class="kpi-grid">
-      <KpiCard label="Faturamento Diário" :value="store.data ? fmt(store.data.financeiro.faturamentoDiario) : ''" accent="blue" :loading="store.loading" />
-      <KpiCard label="Faturamento Semanal" :value="store.data ? fmt(store.data.financeiro.faturamentoSemanal) : ''" accent="violet" :loading="store.loading" />
-      <KpiCard label="Faturamento Total" :value="store.data ? fmt(store.data.financeiro.faturamentoMensal) : ''" accent="green" :loading="store.loading" />
-      <KpiCard label="Ticket Médio" :value="store.data ? fmt(store.data.financeiro.ticketMedio) : ''" accent="amber" :loading="store.loading" />
+      <KpiCard
+        label="Faturamento Total"
+        :value="store.data ? fmt(store.data.financeiro.faturamentoMensal) : ''"
+        accent="green"
+        :loading="store.loading"
+      />
+      <KpiCard
+        label="Ticket Médio"
+        :value="store.data ? fmt(store.data.financeiro.ticketMedio) : ''"
+        accent="blue"
+        :loading="store.loading"
+      />
+      <KpiCard
+        label="Total de Pedidos"
+        :value="store.loading ? '' : (store.data?.pedidos.total ?? 0)"
+        accent="violet"
+        :loading="store.loading"
+      />
+      <KpiCard
+        label="Clientes"
+        :value="store.loading ? '' : (store.data?.clientesAtendidos ?? 0)"
+        accent="amber"
+        :loading="store.loading"
+      />
     </section>
 
     <section class="kpi-grid kpi-grid--5">
-      <KpiCard label="Total de Pedidos" :value="store.data?.pedidos.total ?? ''" accent="blue" :loading="store.loading" />
-      <KpiCard label="Pendentes" :value="store.data?.pedidos.pendentes ?? ''" accent="amber" :loading="store.loading" />
-      <KpiCard label="Em Preparo" :value="store.data?.pedidos.emPreparo ?? ''" accent="blue" :loading="store.loading" />
-      <KpiCard label="Entregues" :value="store.data?.pedidos.entregues ?? ''" accent="green" :loading="store.loading" />
-      <KpiCard label="Clientes" :value="store.data?.clientesAtendidos ?? ''" accent="violet" :loading="store.loading" />
+      <KpiCard
+        label="Pendentes"
+        :value="store.loading ? '' : (store.data?.pedidos.pendentes ?? 0)"
+        accent="amber"
+        :loading="store.loading"
+      />
+      <KpiCard
+        label="Em Preparo"
+        :value="store.loading ? '' : (store.data?.pedidos.emPreparo ?? 0)"
+        accent="blue"
+        :loading="store.loading"
+      />
+      <KpiCard
+        label="Prontos"
+        :value="store.loading ? '' : (store.data?.pedidos.prontos ?? 0)"
+        accent="violet"
+        :loading="store.loading"
+      />
+      <KpiCard
+        label="Entregues"
+        :value="store.loading ? '' : (store.data?.pedidos.entregues ?? 0)"
+        accent="green"
+        :loading="store.loading"
+      />
+      <KpiCard
+        label="Cancelados"
+        :value="store.loading ? '' : (store.data?.pedidos.cancelados ?? 0)"
+        accent="rose"
+        :loading="store.loading"
+      />
     </section>
 
     <section class="charts-grid">
-      <ChartCard title="Faturamento e Pedidos por Dia" class="chart-wide" :loading="store.loading">
-        <VendasChart v-if="hasVendas" :vendas="store.data!.vendasPorDia" />
-      </ChartCard>
-
       <ChartCard title="Pedidos por Status" :loading="store.loading">
         <StatusPedidosChart v-if="hasPedidos" :resumo="store.data!.pedidos" />
+        <div v-else class="chart-empty">Sem dados de pedidos.</div>
       </ChartCard>
 
       <ChartCard title="Produtos Mais Pedidos" :loading="store.loading">
         <ProdutosChart v-if="hasProdutos" :produtos="store.data!.produtosMaisVendidos" />
+        <div v-else class="chart-empty">Nenhum produto com pedidos ainda.</div>
+      </ChartCard>
+
+      <ChartCard v-if="hasVendas" title="Faturamento e Pedidos por Dia" class="chart-wide" :loading="store.loading">
+        <VendasChart :vendas="store.data!.vendasPorDia" />
       </ChartCard>
     </section>
   </div>
@@ -103,7 +149,7 @@ const hasPedidos  = computed(() => !!store.data?.pedidos)
 
 .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .chart-wide { grid-column: 1 / -1; }
-
+.chart-empty { font-size: 13px; color: #94a3b8; text-align: center; padding: 40px 0; }
 
 @media (max-width: 1100px) { .kpi-grid--5 { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 900px) {
